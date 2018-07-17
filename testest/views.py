@@ -68,7 +68,7 @@ def answer(request):
             food = (int(weight) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
                 'message': {
-                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.2f 정도예요!"%(food,food/78)
+                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
                     'type': 'text'
