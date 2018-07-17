@@ -56,7 +56,7 @@ def answer(request):
         section = '사료3'
         return JsonResponse({
             'message': {
-                'text': "멍뭉이의 예외사항"
+                'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
             },
             'keyboard': {
                 'type': 'text'
@@ -68,27 +68,30 @@ def answer(request):
             food = (int(weight) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
                 'message': {
-                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 정도예요!"%(food,food/78)
+                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
                     'type': 'text'
                 }
             })
         elif datacontent=='비만':
+            food = (int(weight) * 30 + 70) * 1.5 / 4.5
             return JsonResponse({
                 'message': {
-                    'text': '무게' + weight + "\n" + "나이" + age
+                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
                     'type': 'text'
                 }
             })
-        else:
+        elif datacontent=='해당없음':
+            food = (int(weight) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
                 'message': {
-                    'text': '무게' + weight + "\n" + "나이" + age
+                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
                     'type': 'text'
                 }
             })
+       
