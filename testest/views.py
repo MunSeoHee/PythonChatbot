@@ -7,9 +7,11 @@ def keyboard(request):
 
     return JsonResponse({
         'message':{
-            'text' : ""
+            'text' : "방가방가"
         },
-        'type':'text'
+        'keyboard': {
+            'type': 'text'
+        }
     })
 
 @csrf_exempt
