@@ -7,7 +7,7 @@ def keyboard(request):
 
     return JsonResponse({
         'type':'buttons',
-        'buttons':['오늘','내일']
+        'buttons':["강아지 사료양"]
     })
 
 @csrf_exempt
@@ -17,28 +17,32 @@ def answer(request):
     received_json_data = json.loads(json_str)
     datacontent = received_json_data['content']
 
-    if datacontent == '오늘':
+    if datacontent == "강아지 사료양":
         today = "오늘 급식"
 
-        return JsonResponse({
+        JsonResponse({
             'message': {
-                'text': today
+                'text': "강아지의 몸무게를 알려주세요!"
             },
             'keyboard': {
-                'type': 'buttons',
-                'buttons': ['오늘', '내일']
+                'type': 'text'
             }
         })
 
-    elif datacontent == '내일':
-        tomorrow = "내일 급식"
-        return JsonResponse({
+        json_str = ((request.body).decode('utf-8'))
+        received_json_data = json.loads(json_str)
+        weight = received_json_data['content']
+
+        return  JsonResponse({
             'message': {
-                'text': tomorrow
+                'text': weight
             },
             'keyboard': {
-                'type': 'buttons',
-                'buttons': ['오늘', '내일']
+                'type':'buttons',
+                'buttons':["강아지 사료양"]
             }
-
         })
+
+
+@csrf_exempt
+def pet(request):
