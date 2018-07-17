@@ -20,7 +20,7 @@ def answer(request):
     if datacontent == "강아지 사료양":
         today = "오늘 급식"
 
-        return JsonResponse({
+        JsonResponse({
             'message': {
                 'text': "강아지의 몸무게를 알려주세요!"
             },
