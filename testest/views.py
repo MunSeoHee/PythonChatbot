@@ -25,7 +25,7 @@ def answer(request):
 
     if datacontent == "강아지 사료양":
         global section
-        section = '1'
+        section = '사료1'
 
         return JsonResponse({
             'message': {
@@ -36,7 +36,11 @@ def answer(request):
             }
         })
 
-    elif section == '1' :
+    elif section == '사료1' :
+
+        global weight
+        weight = datacontent
+        section = '사료2'
         return JsonResponse({
             'message': {
                 'text': "멍뭉이 나이는?!"
@@ -46,3 +50,44 @@ def answer(request):
             }
         })
 
+    elif section == '사료2' :
+        global age
+        age = datacontent
+        section = '사료3'
+        return JsonResponse({
+            'message': {
+                'text': "멍뭉이의 예외사항"
+            },
+            'keyboard': {
+                'type': 'text'
+            }
+        })
+    
+    elif section == '사료3' : 
+        if datacontent == '임신':
+            return JsonResponse({
+                'message': {
+                    'text': '무게'+weight+"\n"+"나이"+age
+                },
+                'keyboard': {
+                    'type': 'text'
+                }
+            })
+        elif datacontent=='비만':
+            return JsonResponse({
+                'message': {
+                    'text': '무게' + weight + "\n" + "나이" + age
+                },
+                'keyboard': {
+                    'type': 'text'
+                }
+            })
+        else:
+            return JsonResponse({
+                'message': {
+                    'text': '무게' + weight + "\n" + "나이" + age
+                },
+                'keyboard': {
+                    'type': 'text'
+                }
+            })
