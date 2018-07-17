@@ -65,9 +65,10 @@ def answer(request):
 
     elif section == '사료3' :
         if datacontent == '임신':
+            food = (int(weight) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
                 'message': {
-                    'text': (int(weight)*30+70)*1.5*3/4.5+"g의 사료가 필요합니다!"
+                    'text': "%d g의 사료가 필요합니다!"%food
                 },
                 'keyboard': {
                     'type': 'text'
