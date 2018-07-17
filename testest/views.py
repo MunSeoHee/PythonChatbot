@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
-global section = '0'
+section = '0'
 
 def keyboard(request):
 
@@ -24,7 +24,7 @@ def answer(request):
     datacontent = received_json_data['content']
 
     if datacontent == "강아지 사료양":
-        today = "오늘 급식"
+        global section
         section = '1'
 
         return JsonResponse({
