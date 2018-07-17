@@ -27,16 +27,5 @@ def answer(request):
             'keyboard': {
                 'type': 'text'
             }
-        }
-        
-        if today=="오늘 급식":
-            return JsonResponse({
-            'message': {
-                'text': "끝!"
-            },
-            'keyboard': {
-                'type': 'text'
-            }
         })
-        )
 
