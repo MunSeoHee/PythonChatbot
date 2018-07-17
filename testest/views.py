@@ -28,4 +28,13 @@ def answer(request):
                 'type': 'text'
             }
         })
+        
+        return JsonResponse({
+            'message': {
+                'text': "끝!"
+            },
+            'keyboard': {
+                'type': 'text'
+            }
+        })
 
