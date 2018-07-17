@@ -28,17 +28,3 @@ def answer(request):
                 'type': 'text'
             }
         })
-
-        json_str = ((request.body).decode('utf-8'))
-        received_json_data = json.loads(json_str)
-        weight = received_json_data['content']
-
-        return  JsonResponse({
-            'message': {
-                'text': weight
-            },
-            'keyboard': {
-                'type':'buttons',
-                'buttons':["강아지 사료양"]
-            }
-        })
