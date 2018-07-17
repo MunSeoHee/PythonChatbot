@@ -9,7 +9,7 @@ def keyboard(request):
 
     return JsonResponse({
         'message':{
-            'text' : "방가방가"
+            'text' : "<메뉴얼>\n강아지 사료양\n"
         },
         'keyboard': {
             'type': 'text'
@@ -94,4 +94,4 @@ def answer(request):
                     'type': 'text'
                 }
             })
-       
+
