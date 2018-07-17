@@ -8,12 +8,8 @@ section = '0'
 def keyboard(request):
 
     return JsonResponse({
-        'message':{
-            'text' : "멍뭉멍뭉"
-        },
-        'keyboard': {
-            'type': 'text'
-        }
+        "type": "buttons","text"
+        "buttons": ["강아지 사료양"]
     })
 
 @csrf_exempt
