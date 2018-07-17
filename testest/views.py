@@ -19,6 +19,7 @@ def answer(request):
 
     if datacontent == "강아지 사료양":
         today = "오늘 급식"
+        n = input("아아")
 
         return JsonResponse({
             'message': {
