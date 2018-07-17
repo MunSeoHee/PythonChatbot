@@ -67,7 +67,7 @@ def answer(request):
         if datacontent == '임신':
             return JsonResponse({
                 'message': {
-                    'text': (weight*30+70)*1.5*3/4.5+"g의 사료가 필요합니다!"
+                    'text': (int(weight)*30+70)*1.5*3/4.5+"g의 사료가 필요합니다!"
                 },
                 'keyboard': {
                     'type': 'text'
