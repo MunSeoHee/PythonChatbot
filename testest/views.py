@@ -41,7 +41,7 @@ def answer(request):
         section = '사료2'
         return JsonResponse({
             'message': {
-                'text': "멍뭉이 나이는?!"+type(weight[0])
+                'text': "멍뭉이 나이는?!"
             },
             'keyboard': {
                 'type': 'text'
