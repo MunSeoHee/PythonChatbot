@@ -56,11 +56,13 @@ def answer(request):
         k = datacontent
 
         if k.find("개월"):
-            month = int(re.findall("\d+", k))
+            x = int(re.findall("\d+", k))
             age = -1
+            month = int(x[0])
         else:
-            age = int(re.findall("\d+", k))
+            x = int(re.findall("\d+", k))
             month = -1
+            age = int(x[0])
 
         section = '사료3'
         return JsonResponse({
