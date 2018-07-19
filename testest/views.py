@@ -33,6 +33,7 @@ def answer(request):
             }
         })
 
+#강아지 몸무게
     elif section == '사료1' :
 
         global weight
@@ -48,10 +49,19 @@ def answer(request):
             }
         })
 
+#강아지 나이
     elif section == '사료2' :
         global age
+        global month
         k = datacontent
-        age = re.findall("\d+", k)
+
+        if k.find("개월"):
+            month = re.findall("\d+", k)
+            age = -1
+        else:
+            age = re.findall("\d+", k)
+            month = -1
+
         section = '사료3'
         return JsonResponse({
             'message': {
@@ -62,6 +72,7 @@ def answer(request):
             }
         })
 
+#예외사항 및 계산
     elif section == '사료3' :
         if datacontent == '임신':
             food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
@@ -84,12 +95,63 @@ def answer(request):
                 }
             })
         elif datacontent=='해당없음':
-            food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
-            return JsonResponse({
-                'message': {
-                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
-                },
-                'keyboard': {
-                    'type': 'text'
-                }
-            })
+            #개월 수로 받았을 때
+            if age == -1:
+                #4개월 미만
+                if month < 4 :
+                    food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
+                    return JsonResponse({
+                        'message': {
+                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+                #4개월 ~ 9개월
+                elif month >=4 and month <9:
+                    food = (float(weight[0]) * 30 + 70) * 1.5 * 2 / 4.5
+                    return JsonResponse({
+                        'message': {
+                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+
+                #9개월 ~ 12개월
+                elif month >=9 and month<12 :
+                    food = (float(weight[0]) * 30 + 70) * 1.5 * 2 / 4.5
+                    return JsonResponse({
+                        'message': {
+                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+
+                #12개월 이상
+                else :
+                    food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
+                    return JsonResponse({
+                        'message': {
+                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+
+             #N살로 받았을 때
+            else :
+                food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
+                return JsonResponse({
+                    'message': {
+                        'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
+                    },
+                    'keyboard': {
+                        'type': 'text'
+                    }
+                })
