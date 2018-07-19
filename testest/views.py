@@ -37,7 +37,7 @@ def answer(request):
 
         global weight
         k = datacontent
-        weight = re.findall("\.\d+", k)
+        weight = re.findall("\d+\.\d+", k)
         section = '사료2'
         return JsonResponse({
             'message': {
