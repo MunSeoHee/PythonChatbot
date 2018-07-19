@@ -63,7 +63,7 @@ def answer(request):
 
     elif section == '사료3' :
         if datacontent == '임신':
-            food = (int(weight) * 30 + 70) * 1.5 * 3 / 4.5
+            food = (int(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
                 'message': {
                     'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
@@ -73,7 +73,7 @@ def answer(request):
                 }
             })
         elif datacontent=='비만':
-            food = (int(weight) * 30 + 70) * 1.5 / 4.5
+            food = (int(weight[0]) * 30 + 70) * 1.5 / 4.5
             return JsonResponse({
                 'message': {
                     'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
@@ -83,7 +83,7 @@ def answer(request):
                 }
             })
         elif datacontent=='해당없음':
-            food = (int(weight) * 30 + 70) * 1.5 * 3 / 4.5
+            food = (int(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
                 'message': {
                     'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
