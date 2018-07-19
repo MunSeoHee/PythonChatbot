@@ -56,10 +56,10 @@ def answer(request):
         k = datacontent
 
         if k.find("개월"):
-            month = re.findall("\d+", k)
+            month = int(re.findall("\d+", k))
             age = -1
         else:
-            age = re.findall("\d+", k)
+            age = int(re.findall("\d+", k))
             month = -1
 
         section = '사료3'
