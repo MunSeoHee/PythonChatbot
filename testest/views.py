@@ -50,7 +50,8 @@ def answer(request):
 
     elif section == '사료2' :
         global age
-        age = datacontent
+        k = datacontent
+        age = re.findall("\d+", k)
         section = '사료3'
         return JsonResponse({
             'message': {
