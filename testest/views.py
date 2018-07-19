@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
+import re
 
 section = '0'
 
 def keyboard(request):
 
     return JsonResponse({
-        "type": "buttons",
+        "type": "buttons","text"
         "buttons": ["강아지 사료양"]
     })
 
@@ -35,7 +36,8 @@ def answer(request):
     elif section == '사료1' :
 
         global weight
-        weight = datacontent
+        k = datacontent
+        weight = re.findall("\d+", k)
         section = '사료2'
         return JsonResponse({
             'message': {
