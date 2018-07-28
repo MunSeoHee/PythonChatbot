@@ -20,7 +20,7 @@ def answer(request):
     received_json_data = json.loads(json_str)
     datacontent = received_json_data['content']
 
-    if datacontent == "강아지 사료양":
+    if datacontent == "강아지 사료양" or datacontent.find("사료"):
         global section
         section = '사료1'
 
@@ -157,3 +157,13 @@ def answer(request):
                         'type': 'text'
                     }
                 })
+
+    else :
+        return JsonResponse({
+            'message': {
+                'text': "옳지 않은 입력입니다"
+            },
+            'keyboard': {
+                'type': 'button'
+            }
+        })
