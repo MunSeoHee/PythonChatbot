@@ -157,13 +157,5 @@ def answer(request):
                         'type': 'text'
                     }
                 })
-
-    else :
-        return JsonResponse({
-            'message': {
-                'text': "옳지 않은 입력입니다"
-            },
-            'keyboard': {
-                'type': 'button'
-            }
-        })
+            
+    
