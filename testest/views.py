@@ -20,7 +20,7 @@ def answer(request):
     received_json_data = json.loads(json_str)
     datacontent = received_json_data['content']
 
-    if datacontent == "강아지 사료양" or datacontent.find("사료"):
+    if datacontent == "강아지 사료양":
         global section
         section = '사료1'
 
@@ -157,5 +157,3 @@ def answer(request):
                         'type': 'text'
                     }
                 })
-            
-    
