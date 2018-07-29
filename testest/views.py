@@ -158,12 +158,12 @@ def answer(request):
                     }
                 })
 
-    else :
+   else :
         return JsonResponse({
             'message': {
-                'text': "입력이 잘못되었습니다"
+                'text': "강아지의 몸무게를 알려주세요!"
             },
             'keyboard': {
-                'type': 'button'
+                'type': 'text'
             }
         })
