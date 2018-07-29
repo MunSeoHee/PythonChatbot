@@ -158,7 +158,7 @@ def answer(request):
                     }
                 })
 
-     else :
+    else :
         return JsonResponse({
             'message': {
                 'text': "강아지의 몸무게를 알려주세요!"
