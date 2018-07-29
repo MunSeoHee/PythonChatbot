@@ -157,3 +157,13 @@ def answer(request):
                         'type': 'text'
                     }
                 })
+            
+    else :
+        return JsonResponse({
+            'message': {
+                'text': "입력이 잘못되었습니다"
+            },
+            'keyboard': {
+                'type': 'button'
+            }
+        })
