@@ -157,7 +157,7 @@ def answer(request):
                         'type': 'text'
                     }
                 })
-            
+
     else :
         return JsonResponse({
             'message': {
