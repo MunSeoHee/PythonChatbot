@@ -38,41 +38,41 @@ def answer(request):
         global weight
         for x in datacontent:
             if x.isdigit():
-                if datacontent.find("kg") or datacontent.find("KG") or datacontent.find("Kg") or datacontent.find("키로"):
+                if datacontent.find("kg") != -1 or datacontent.find("KG") != -1 or datacontent.find("Kg") != -1 or datacontent.find("키로") != -1:
 
                     k = datacontent
                     weight = re.findall("\d+.\d+|\d", k)
                     section = '사료2'
                     return JsonResponse({
                         'message': {
-                            'text': "멍뭉이 나이는?!"
+                            'text': "1멍뭉이 나이는?!"
                         },
                         'keyboard': {
                             'type': 'text'
                         }
                     })
-            elif datacontent.isdigit():
-
-                k = datacontent
-                weight = re.findall("\d+.\d+|\d", k)
-                section = '사료2'
-                return JsonResponse({
-                    'message': {
-                        'text': "멍뭉이 나이는?!"
-                    },
-                    'keyboard': {
-                        'type': 'text'
-                    }
-                })
-            else :
-                return JsonResponse({
-                    'message': {
-                        'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 몸무게를 알려주세요!"
-                    },
-                    'keyboard': {
-                        'type': 'text'
-                    }
-                })
+                elif datacontent.isdigit():
+        
+                    k = datacontent
+                    weight = re.findall("\d+.\d+|\d", k)
+                    section = '사료2'
+                    return JsonResponse({
+                        'message': {
+                            'text': "2멍뭉이 나이는?!"
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+           
+        return JsonResponse({
+            'message': {
+                'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 몸무게를 알려주세요!"
+            },
+            'keyboard': {
+                'type': 'text'
+            }
+        })
 
 #강아지 나이
     elif section == '사료2' :
@@ -124,7 +124,7 @@ def answer(request):
                         }
                     })
 
-            
+
         return JsonResponse({
             'message': {
                 'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 나이를 알려주세요!"
