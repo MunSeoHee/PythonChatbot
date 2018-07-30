@@ -163,7 +163,7 @@ def answer(request):
     else :
         return JsonResponse({
             'message': {
-                'text': "입력이 옳지 않습니다!"
+                'text': "멍뭉이 나이는?!"
             },
             'keyboard': {
                 'type': 'button'
