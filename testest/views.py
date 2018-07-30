@@ -67,7 +67,7 @@ def answer(request):
             else :
                 return JsonResponse({
                     'message': {
-                        'text': "입력이 옳지 않습니다;ㅁ;"
+                        'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 몸무게를 알려주세요!"
                     },
                     'keyboard': {
                         'type': 'text'
