@@ -137,7 +137,7 @@ def answer(request):
     elif section == '사료3' :
         section = '0'
 
-        if datacontent.find("임신"):
+        if datacontent.find("임신") != -1:
             food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
                 'message': {
@@ -147,7 +147,7 @@ def answer(request):
                     'type': 'buttons'
                 }
             })
-        elif datacontent.find("비만")or datacontent.find("돼지") or (datacontent.find("살") and datacontent.find("쪘")):
+        elif datacontent.find("비만") != -1 or datacontent.find("돼지") != -1 or (datacontent.find("살") != -1 and datacontent.find("쪘") != -1):
             food = (float(weight[0]) * 30 + 70) * 1.5 / 4.5
             return JsonResponse({
                 'message': {
@@ -157,7 +157,7 @@ def answer(request):
                     'type': 'buttons'
                 }
             })
-        elif datacontent.find("없"):
+        elif datacontent.find("없") != -1 :
             #개월 수로 받았을 때
             if age == -1:
                 #4개월 미만
