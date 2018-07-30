@@ -35,11 +35,11 @@ def answer(request):
 
 #강아지 몸무게
     elif section == '사료1' :
-
+        global weight
         for x in datacontent:
             if x.isdigit():
                 if datacontent.find("kg") or datacontent.find("KG") or datacontent.find("Kg") or datacontent.find("키로"):
-                    global weight
+
                     k = datacontent
                     weight = re.findall("\d+.\d+|\d", k)
                     section = '사료2'
@@ -52,7 +52,7 @@ def answer(request):
                         }
                     })
             elif datacontent.isdigit():
-                global weight
+
                 k = datacontent
                 weight = re.findall("\d+.\d+|\d", k)
                 section = '사료2'
@@ -218,6 +218,16 @@ def answer(request):
                         'type': 'buttons'
                     }
                 })
+            
+        else:
+            return JsonResponse({
+                'message': {
+                    'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 예외사항을 알려주세요 (임신, 비만, 해당없음)"
+                },
+                'keyboard': {
+                    'type': 'text'
+                }
+            })
 
     else :
         return JsonResponse({
