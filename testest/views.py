@@ -76,8 +76,8 @@ def answer(request):
 
 #예외사항 및 계산
     elif section == '사료3' :
-        
-        
+        section = '0'
+
         if datacontent == '임신':
             food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
             return JsonResponse({
