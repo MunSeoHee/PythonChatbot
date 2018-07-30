@@ -90,7 +90,7 @@ def answer(request):
                     section = '사료3'
                     return JsonResponse({
                         'message': {
-                            'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                            'text': "(개월)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
                         },
                         'keyboard': {
                             'type': 'text'
@@ -103,7 +103,7 @@ def answer(request):
                     section = '사료3'
                     return JsonResponse({
                         'message': {
-                            'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                            'text': "(년)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
                         },
                         'keyboard': {
                             'type': 'text'
@@ -116,7 +116,7 @@ def answer(request):
                 section = '사료3'
                 return JsonResponse({
                     'message': {
-                        'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                        'text': "(년)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
                     },
                     'keyboard': {
                         'type': 'text'
