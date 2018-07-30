@@ -166,6 +166,6 @@ def answer(request):
                 'text': "멍뭉이 나이는?!"
             },
             'keyboard': {
-                'type': 'button'
+                'type': 'buttons'
             }
         })
