@@ -9,7 +9,7 @@ section = '0'
 def keyboard(request):
 
     return JsonResponse({
-        "type": "buttons", "text"
+        "type": "text", "buttons"
         "buttons": ["강아지 사료양"]
     })
 
