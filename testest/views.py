@@ -135,10 +135,10 @@ def answer(request):
 
 #예외사항 및 계산
     elif section == '사료3' :
-        section = '0'
 
         if datacontent.find("임신") != -1:
             food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
+            section = '0'
             return JsonResponse({
                 'message': {
                     'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!1"%(food,food/78)
@@ -148,6 +148,7 @@ def answer(request):
                 }
             })
         elif datacontent.find("비만") != -1 or datacontent.find("돼지") != -1 or (datacontent.find("살") != -1 and datacontent.find("쪘") != -1):
+            section = '0'
             food = (float(weight[0]) * 30 + 70) * 1.5 / 4.5
             return JsonResponse({
                 'message': {
@@ -158,6 +159,7 @@ def answer(request):
                 }
             })
         elif datacontent.find("없") != -1 :
+            section = '0'
             #개월 수로 받았을 때
             if age == -1:
                 #4개월 미만
