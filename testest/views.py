@@ -26,7 +26,7 @@ def answer(request):
 
         return JsonResponse({
             'message': {
-                'text': "강아지의 몸무게를 알려주세요!"
+                'text': "강아지의 몸무게(kg)를 알려주세요!"
             },
             'keyboard': {
                 'type': 'text'
@@ -218,7 +218,7 @@ def answer(request):
                         'type': 'buttons'
                     }
                 })
-            
+
         else:
             return JsonResponse({
                 'message': {
