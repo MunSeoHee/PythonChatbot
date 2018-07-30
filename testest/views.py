@@ -83,7 +83,7 @@ def answer(request):
 
         for x in datacontent:
             if x.isdigit():
-                if datacontent.find("개월") or datacontent.find("달"):
+                if datacontent.find("개월") != -1 or datacontent.find("달") != -1 :
                     x = re.findall("\d+", k)
                     age = -1
                     month = int(x[0])
@@ -96,7 +96,7 @@ def answer(request):
                             'type': 'text'
                         }
                     })
-                elif datacontent.find("살") or datacontent.find("년"):
+                elif datacontent.find("살") != -1 or datacontent.find("년") != -1 :
                     x = re.findall("\d+", k)
                     month = -1
                     age = int(x[0])
