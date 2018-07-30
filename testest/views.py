@@ -36,18 +36,44 @@ def answer(request):
 #강아지 몸무게
     elif section == '사료1' :
 
-        global weight
-        k = datacontent
-        weight = re.findall("\d+.\d+|\d", k)
-        section = '사료2'
-        return JsonResponse({
-            'message': {
-                'text': "멍뭉이 나이는?!"
-            },
-            'keyboard': {
-                'type': 'text'
-            }
-        })
+        for x in datacontent:
+            if x.isdigit():
+                if datacontent.find("kg") or datacontent.find("KG") or datacontent.find("Kg") or datacontent.find("키로")
+                    global weight
+                    k = datacontent
+                    weight = re.findall("\d+.\d+|\d", k)
+                    section = '사료2'
+                    return JsonResponse({
+                        'message': {
+                            'text': "멍뭉이 나이는?!"
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+            elif datacontent.isdigit():
+                global weight
+                k = datacontent
+                weight = re.findall("\d+.\d+|\d", k)
+                section = '사료2'
+                return JsonResponse({
+                    'message': {
+                        'text': "멍뭉이 나이는?!"
+                    },
+                    'keyboard': {
+                        'type': 'text'
+                    }
+                })
+            else :
+                return JsonResponse({
+                    'message': {
+                        'text': "입력이 옳지 않습니다;ㅁ;"
+                    },
+                    'keyboard': {
+                        'type': 'buttons'
+                    }
+                })
+
 
 #강아지 나이
     elif section == '사료2' :
