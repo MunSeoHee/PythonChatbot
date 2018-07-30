@@ -109,19 +109,20 @@ def answer(request):
                             'type': 'text'
                         }
                     })
-            elif datacontent.isdigit():
-                x = re.findall("\d+", k)
-                month = -1
-                age = int(x[0])
-                section = '사료3'
-                return JsonResponse({
-                    'message': {
-                        'text': "(년)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
-                    },
-                    'keyboard': {
-                        'type': 'text'
-                    }
-                })
+                
+                elif datacontent.isdigit():
+                    x = re.findall("\d+", k)
+                    month = -1
+                    age = int(x[0])
+                    section = '사료3'
+                    return JsonResponse({
+                        'message': {
+                            'text': "(년)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
 
             else:
                 return JsonResponse({
