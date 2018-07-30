@@ -97,7 +97,7 @@ def answer(request):
                             'type': 'text'
                         }
                     })
-                elif datacontent.find("살") or datacontent.find("년")
+                elif datacontent.find("살") or datacontent.find("년"):
                     x = re.findall("\d+", k)
                     month = -1
                     age = int(x[0])
