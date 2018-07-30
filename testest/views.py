@@ -70,7 +70,7 @@ def answer(request):
                         'text': "입력이 옳지 않습니다;ㅁ;"
                     },
                     'keyboard': {
-                        'type': 'buttons'
+                        'type': 'text'
                     }
                 })
 
