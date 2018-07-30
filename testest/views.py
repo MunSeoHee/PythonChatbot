@@ -38,7 +38,7 @@ def answer(request):
 
         for x in datacontent:
             if x.isdigit():
-                if datacontent.find("kg") or datacontent.find("KG") or datacontent.find("Kg") or datacontent.find("키로")
+                if datacontent.find("kg") or datacontent.find("KG") or datacontent.find("Kg") or datacontent.find("키로"):
                     global weight
                     k = datacontent
                     weight = re.findall("\d+.\d+|\d", k)
