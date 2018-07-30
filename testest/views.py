@@ -45,29 +45,29 @@ def answer(request):
                     section = '사료2'
                     return JsonResponse({
                         'message': {
-                            'text': "1멍뭉이 나이는?!"
+                            'text': "멍뭉이 나이는?!"
                         },
                         'keyboard': {
                             'type': 'text'
                         }
                     })
                 elif datacontent.isdigit():
-        
+
                     k = datacontent
                     weight = re.findall("\d+.\d+|\d", k)
                     section = '사료2'
                     return JsonResponse({
                         'message': {
-                            'text': "2멍뭉이 나이는?!"
+                            'text': "멍뭉이 나이는?!"
                         },
                         'keyboard': {
                             'type': 'text'
                         }
                     })
-           
+
         return JsonResponse({
             'message': {
-                'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 몸무게를 알려주세요!"
+                'text': "입력이 옳지 않습니다;ㅁ;\n\n강아지의 몸무게를 알려주세요!"
             },
             'keyboard': {
                 'type': 'text'
@@ -90,7 +90,7 @@ def answer(request):
                     section = '사료3'
                     return JsonResponse({
                         'message': {
-                            'text': "(개월)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                            'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
                         },
                         'keyboard': {
                             'type': 'text'
@@ -103,7 +103,7 @@ def answer(request):
                     section = '사료3'
                     return JsonResponse({
                         'message': {
-                            'text': "(년)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                            'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
                         },
                         'keyboard': {
                             'type': 'text'
@@ -117,7 +117,7 @@ def answer(request):
                     section = '사료3'
                     return JsonResponse({
                         'message': {
-                            'text': "(년)멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                            'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
                         },
                         'keyboard': {
                             'type': 'text'
@@ -127,7 +127,7 @@ def answer(request):
 
         return JsonResponse({
             'message': {
-                'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 나이를 알려주세요!"
+                'text': "입력이 옳지 않습니다;ㅁ;\n\n강아지의 나이를 알려주세요!"
             },
             'keyboard': {
                 'type': 'text'
@@ -142,7 +142,7 @@ def answer(request):
             section = '0'
             return JsonResponse({
                 'message': {
-                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!1"%(food,food/78)
+                    'text': "%d g의 사료가 필요합니다! \n종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
                     'type': 'buttons'
@@ -153,7 +153,7 @@ def answer(request):
             food = (float(weight[0]) * 30 + 70) * 1.5 / 4.5
             return JsonResponse({
                 'message': {
-                    'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!2"%(food,food/78)
+                    'text': "%d g의 사료가 필요합니다! \n종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
                     'type': 'buttons'
@@ -168,7 +168,7 @@ def answer(request):
                     food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
                     return JsonResponse({
                         'message': {
-                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n하루에 4~5번으로 나눠서 주는 걸 권장해요!3" % (food, food / 78)
+                            'text': "%d g의 사료가 필요합니다! \n종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 4~5번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
                             'type': 'buttons'
@@ -179,7 +179,7 @@ def answer(request):
                     food = (float(weight[0]) * 30 + 70) * 1.5 * 2 / 4.5
                     return JsonResponse({
                         'message': {
-                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n하루에 3~4번으로 나눠서 주는 걸 권장해요!4" % (food, food / 78)
+                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 3~4번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
                             'type': 'buttons'
@@ -191,7 +191,7 @@ def answer(request):
                     food = (float(weight[0]) * 30 + 70) * 1.5 * 2 / 4.5
                     return JsonResponse({
                         'message': {
-                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n하루에 2~3번으로 나눠서 주는 걸 권장해요!5" % (food, food / 78)
+                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 2~3번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
                             'type': 'buttons'
@@ -203,7 +203,7 @@ def answer(request):
                     food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
                     return JsonResponse({
                         'message': {
-                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n하루에 2~3번으로 나눠서 주는 걸 권장해요!6" % (food, food / 78)
+                            'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 2~3번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
                             'type': 'buttons'
@@ -215,7 +215,7 @@ def answer(request):
                 food = (float(weight[0]) * 30 + 70) * 1.5 * 3 / 4.5
                 return JsonResponse({
                     'message': {
-                        'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n하루에 2~3번으로 나눠서 주는 걸 권장해요!7" % (food, food / 78)
+                        'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 2~3번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                     },
                     'keyboard': {
                         'type': 'buttons'
@@ -225,7 +225,7 @@ def answer(request):
         else:
             return JsonResponse({
                 'message': {
-                    'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 예외사항을 알려주세요 (임신, 비만, 해당없음)8"
+                    'text': "입력이 옳지 않습니다;ㅁ;\n\n강아지의 예외사항을 알려주세요 (임신, 비만, 해당없음)"
                 },
                 'keyboard': {
                     'type': 'text'
