@@ -10,7 +10,7 @@ def keyboard(request):
 
     return JsonResponse({
         "type": "buttons", 
-        "buttons": ["강아지 사료양"]
+        "buttons": ["강아지 사료양", "ㅌ"]
     })
 
 @csrf_exempt
