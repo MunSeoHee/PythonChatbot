@@ -37,7 +37,7 @@ def answer(request):
     elif section == '사료1' :
         global weight
         for x in datacontent:
-            if x.isdigit():
+            if is_digit(x):
                 if datacontent.find("kg") != -1 or datacontent.find("KG") != -1 or datacontent.find("Kg") != -1 or datacontent.find("키로") != -1:
 
                     k = datacontent
@@ -51,8 +51,7 @@ def answer(request):
                             'type': 'text'
                         }
                     })
-                elif datacontent.isdigit():
-
+                elif is_digit(datacontent):
                     k = datacontent
                     weight = re.findall("\d+.\d+|\d", k)
                     section = '사료2'
@@ -110,7 +109,7 @@ def answer(request):
                         }
                     })
 
-                elif datacontent.isdigit():
+                elif is_digit(datacontent):
                     x = re.findall("\d+", k)
                     month = -1
                     age = int(x[0])
@@ -241,3 +240,12 @@ def answer(request):
                 'type': 'buttons'
             }
         })
+
+
+
+def is_digit(str):
+    try:
+        tmp = float(str)
+        return True
+    except ValueError:
+        return False
