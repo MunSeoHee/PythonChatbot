@@ -109,7 +109,7 @@ def answer(request):
                             'type': 'text'
                         }
                     })
-                
+
                 elif datacontent.isdigit():
                     x = re.findall("\d+", k)
                     month = -1
@@ -124,15 +124,15 @@ def answer(request):
                         }
                     })
 
-            else:
-                return JsonResponse({
-                    'message': {
-                        'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 나이를 알려주세요!"
-                    },
-                    'keyboard': {
-                        'type': 'text'
-                    }
-                })
+            
+        return JsonResponse({
+            'message': {
+                'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 나이를 알려주세요!"
+            },
+            'keyboard': {
+                'type': 'text'
+            }
+        })
 
 #예외사항 및 계산
     elif section == '사료3' :
