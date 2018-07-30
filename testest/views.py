@@ -9,8 +9,8 @@ section = '0'
 def keyboard(request):
 
     return JsonResponse({
-        "type": "buttons", 
-        "buttons": ["강아지 사료양", "ㅌ"]
+        "type": "buttons", "text"
+        "buttons": ["강아지 사료양"]
     })
 
 @csrf_exempt
@@ -144,7 +144,7 @@ def answer(request):
                     'text': "%d g의 사료가 필요합니다! \n종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
-                    'type': 'buttons'
+                    'type': 'buttons', 'text'
                 }
             })
         elif datacontent.find("비만") != -1 or datacontent.find("돼지") != -1 or (datacontent.find("살") != -1 and datacontent.find("쪘") != -1):
@@ -155,7 +155,7 @@ def answer(request):
                     'text': "%d g의 사료가 필요합니다! \n종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
-                    'type': 'buttons'
+                    'type': 'buttons', 'text'
                 }
             })
         elif datacontent.find("없") != -1 :
@@ -170,7 +170,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 4~5번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'buttons'
+                            'type': 'buttons', 'text'
                         }
                     })
                 #4개월 ~ 9개월
@@ -181,7 +181,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 3~4번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'buttons'
+                            'type': 'buttons', 'text'
                         }
                     })
 
@@ -193,7 +193,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 2~3번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'buttons'
+                            'type': 'buttons', 'text'
                         }
                     })
 
@@ -205,7 +205,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 2~3번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'buttons'
+                            'type': 'buttons', 'text'
                         }
                     })
 
@@ -217,7 +217,7 @@ def answer(request):
                         'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!\n\n하루에 2~3번으로 나눠서 주는 걸 권장해요!" % (food, food / 78)
                     },
                     'keyboard': {
-                        'type': 'buttons'
+                        'type': 'buttons', 'text'
                     }
                 })
 
@@ -227,7 +227,7 @@ def answer(request):
                     'text': "입력이 옳지 않습니다;ㅁ;\n\n강아지의 예외사항을 알려주세요 (임신, 비만, 해당없음)"
                 },
                 'keyboard': {
-                    'type': 'text'
+                    'type': 'text', 'text'
                 }
             })
 
@@ -237,7 +237,7 @@ def answer(request):
                 'text': "입력이 옳지 않습니다;ㅁ;"
             },
             'keyboard': {
-                'type': 'buttons'
+                'type': 'text', 'buttons'
             }
         })
 
