@@ -77,28 +77,69 @@ def answer(request):
 
 #강아지 나이
     elif section == '사료2' :
+        
         global age
         global month
         k = datacontent
+        
+        for x in datacontent:
+            if x.isdigit():
+                if datacontent.find("개월") or datacontent.find("달"):
+                    x = re.findall("\d+", k)
+                    age = -1
+                    month = int(x[0])
+                    section = '사료3'
+                    return JsonResponse({
+                        'message': {
+                            'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+                elif datacontent.find("살") or datacontent.find("년")
+                    x = re.findall("\d+", k)
+                    month = -1
+                    age = int(x[0])
+                    section = '사료3'
+                    return JsonResponse({
+                        'message': {
+                            'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                        },
+                        'keyboard': {
+                            'type': 'text'
+                        }
+                    })
+            elif datacontent.isdigit():
+                x = re.findall("\d+", k)
+                month = -1
+                age = int(x[0])
+                section = '사료3'
+                return JsonResponse({
+                    'message': {
+                        'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
+                    },
+                    'keyboard': {
+                        'type': 'text'
+                    }
+                })
+                
+            else:
+                return JsonResponse({
+                    'message': {
+                        'text': "입력이 옳지 않습니다;ㅁ;\n강아지의 나이를 알려주세요!"
+                    },
+                    'keyboard': {
+                        'type': 'text'
+                    }
+                })
 
-        if k.find("개월"):
-            x = re.findall("\d+", k)
-            age = -1
-            month = int(x[0])
-        else:
-            x = re.findall("\d+", k)
-            month = -1
-            age = int(x[0])
+        
+            
+            
 
-        section = '사료3'
-        return JsonResponse({
-            'message': {
-                'text': "멍뭉이의 예외사항 (임신, 비만, 해당없음)"
-            },
-            'keyboard': {
-                'type': 'text'
-            }
-        })
+        
+        
 
 #예외사항 및 계산
     elif section == '사료3' :
@@ -111,7 +152,7 @@ def answer(request):
                     'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
-                    'type': 'text'
+                    'type': 'buttons'
                 }
             })
         elif datacontent=='비만':
@@ -121,7 +162,7 @@ def answer(request):
                     'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!"%(food,food/78)
                 },
                 'keyboard': {
-                    'type': 'text'
+                    'type': 'buttons'
                 }
             })
         elif datacontent=='해당없음':
@@ -135,7 +176,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'text'
+                            'type': 'buttons'
                         }
                     })
                 #4개월 ~ 9개월
@@ -146,7 +187,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'text'
+                            'type': 'buttons'
                         }
                     })
 
@@ -158,7 +199,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'text'
+                            'type': 'buttons'
                         }
                     })
 
@@ -170,7 +211,7 @@ def answer(request):
                             'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
                         },
                         'keyboard': {
-                            'type': 'text'
+                            'type': 'buttons'
                         }
                     })
 
@@ -182,7 +223,7 @@ def answer(request):
                         'text': "%d g의 사료가 필요합니다! \n 종이컵으로 약 %.1f 컵 정도예요!" % (food, food / 78)
                     },
                     'keyboard': {
-                        'type': 'text'
+                        'type': 'buttons'
                     }
                 })
 
